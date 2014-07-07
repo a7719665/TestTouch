@@ -50,7 +50,7 @@
   <flashCatalyst validateFlashCatalystCompatibility="false"/>
   <buildTargets>
     <buildTarget buildTargetName="default">
-      <airSettings airCertificatePath="C:/Documents and Settings/Administrator/桌面/key.p12" airTimestamp="true" anePathSet="true" version="1">
+      <airSettings airCertificatePath="C:/Documents and Settings/Administrator/妗岄潰/key.p12" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes/>
         <anePaths/>
       </airSettings>
@@ -58,3 +58,4 @@
     </buildTarget>
   </buildTargets>
 </actionScriptProperties>
+

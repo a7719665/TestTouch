@@ -1,5 +1,5 @@
 <NokDialog sceneWidth="600" sceneHeight="400" sceneColor="0xffffff" sceneBg="" layers="1,1,0,0,第 1 层;2,1,0,0,第 2 层">
-  <UIView source="view/item/CardItem.xml" x="0" y="1" layer="2" var="card"/>
+  <UIView source="view/item/CardItem.xml" x="283" y="10" layer="2" var="card"/>
   <Box layers="1,1,0" layer="1" var="playerMain">
     <UIView source="view/GridPanel.xml" x="1" y="27" layer="1"/>
     <Label text="题目" x="0" y="0" layer="1" isHtml="true" width="218" height="25" var="tipTxt" color="0xff0000" size="18"/>

@@ -13,7 +13,7 @@ package game.ui.view {
 		public var timeTxt2:Label;
 		protected var uiXML:XML =
 			<NokDialog>
-			  <CardItem x="0" y="1" var="card" runtime="game.ui.view.item.CardItemUI"/>
+			  <CardItem x="283" y="10" var="card" runtime="game.ui.view.item.CardItemUI"/>
 			  <Box var="playerMain">
 			    <GridPanel x="1" y="27" runtime="game.ui.view.GridPanelUI"/>
 			    <Label text="题目" x="0" y="0" isHtml="true" width="218" height="25" var="tipTxt" color="0xff0000" size="18"/>

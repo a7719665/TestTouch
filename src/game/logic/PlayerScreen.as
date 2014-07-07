@@ -24,16 +24,22 @@ package game.logic
 	public class PlayerScreen extends PlayerScreenUI
 	{
 		private var smoothDraw:SmoothDraw;
+		private var rect:Rectangle ;
 		public function PlayerScreen()
 		{
 			super();
-			trapezoid = new Shape();   
+			trapezoid = new Sprite();   
 			this.addChild(trapezoid);
-//			trapezoid.graphics.beginFill(0xFFD700,0);
-//			
-//			trapezoid.graphics.drawCircle(0,0,1);
-//			
-//			trapezoid.graphics.endFill();
+//			trapezoid.x = drawSp.x;
+//			trapezoid.y = drawSp.y;
+			
+			trapezoid.graphics.beginFill(0xFFD700,0);
+			
+			trapezoid.graphics.drawRect(drawSp.x,drawSp.y,drawSp.width,drawSp.height);
+			
+			trapezoid.graphics.endFill();
+			
+			rect = new Rectangle(drawSp.x,drawSp.y,drawSp.width,drawSp.height);
 			
 //			startDraw();
 			
@@ -51,25 +57,32 @@ package game.logic
 			trapezoid.addEventListener(MultTouchEvent.TOUCH,testFun);
 			new MultTouchHelper(trapezoid,MultTouchHelper.MULT_ALL);
 			
-			function testFun(evt:MultTouchEvent):void{
-				var p:Point = trapezoid.globalToLocal(new Point(evt.stageX,evt.stageY));
-
-				if(evt.touchType == MultTouchPhase.TOUCH_BEGAN){
-					trapezoid.graphics.lineStyle(4, 0xFFFFFF, 1, false, LineScaleMode.VERTICAL,
-						CapsStyle.NONE, JointStyle.MITER, 10);
-					/**将起点移到鼠标点击点处*/
-					trapezoid.graphics.moveTo(p.x,p.y);
-				}
-				if(evt.touchType == MultTouchPhase.TOUCH_MOVE){
-					trapezoid.graphics.lineTo(p.x,p.y);
-				}
-				if(evt.touchType == MultTouchPhase.TOUCH_END){
-					trapezoid.graphics.endFill();
-				}
+		
+		}
+		
+		private function testFun(evt:MultTouchEvent):void{
+			var p:Point = trapezoid.globalToLocal(new Point(evt.stageX,evt.stageY));
+			if(!rect.contains(p.x,p.y)){
+				trapezoid.graphics.endFill();
+				return;
+			}
+			if(evt.touchType == MultTouchPhase.TOUCH_BEGAN){
+				trapezoid.graphics.lineStyle(4, 0xFFFFFF, 1, false, LineScaleMode.VERTICAL,
+					CapsStyle.NONE, JointStyle.MITER, 10);
+				/**将起点移到鼠标点击点处*/
+				trapezoid.graphics.moveTo(p.x,p.y);
+			}
+			if(evt.touchType == MultTouchPhase.TOUCH_MOVE){
+				trapezoid.graphics.lineTo(p.x,p.y);
+			}
+			if(evt.touchType == MultTouchPhase.TOUCH_END){
+				trapezoid.graphics.endFill();
 			}
 		}
 		
 		private function scaleHandle(evt:MultTouchEvent):void{
+			playerMain.visible=true;
+			card.visible=false;
 			trace(evt.scale);
 			if(evt.scale>1){
 				card.scale = evt.scale;
@@ -81,7 +94,7 @@ package game.logic
 		}
 		
 		private const CLEAR:Boolean = false;//是否每一次画线前都清内容
-		private var trapezoid:Shape ;
+		private var trapezoid:Sprite ;
 		private var bmdbytes:ByteArray;
 		private function huanyuanBmd(evt:Event=null):void{
 			var bmd:BitmapData = ByteArrayUtil.BytesToBitmapData(bmdbytes);

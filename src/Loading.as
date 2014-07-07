@@ -146,7 +146,7 @@ package
  
 		private function lc2(content:String):void{
 			Global.question = [];
-			content = content.replace("\r","");
+			content = content.replace(/\r/g, "");
 			var arr:Array = content.split("\n");
 			for(var i:int=0;i<arr.length;i++){
 				var str:String = arr[i];
@@ -166,7 +166,8 @@ package
 		
 		private function lc(content:String):void{
 			Global.answer = [];
-			content = content.replace("\r","");
+//			content = content.replace("\r","");
+			content = content.replace(/\r/g, "");
 			var arr:Array = content.split("\n");
 			for(var i:int=0;i<arr.length;i++){
 				var str:String = arr[i];
