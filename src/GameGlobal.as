@@ -12,7 +12,7 @@ package
 		/**
 		 * 头像视图
 		 */
-//		public static var headView:IHeadView;
+//		public static var headView:IHeadView; 
 		
 		/**
 		 * 加载器
