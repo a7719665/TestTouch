@@ -35,9 +35,10 @@ package game.logic
 			var zhongIndexArr:Array = [];
 			var beishu:int = index / listSize;
 			var hengMax:int = (beishu+1) * listSize ;
+			var hengMin:int = int(index/listSize) * listSize;
 			var arr:Array = Global.answer;
 			/**横着*/
-			for(var i1:int=index;i1>=0;i1--){
+			for(var i1:int=index;i1>=hengMin;i1--){
 				if(list.array[i1].answer != "0"){
 					hengIndexArr.push(i1);
 				}else{
@@ -46,7 +47,8 @@ package game.logic
 			}
 			for(var i:int=index;i<hengMax;i++){
 				if(list.array[i].answer != "0"){
-					hengIndexArr.push(i);
+					if(hengIndexArr.indexOf(i) < 0)
+						hengIndexArr.push(i);
 				}else{
 					break;
 				}
@@ -54,7 +56,7 @@ package game.logic
 			/**纵*/
 			for(var j1:int=index;j1>=0;j1-=listSize){
 				if(list.array[j1].answer != "0"){
-					if(zhongIndexArr.indexOf(j1) < 0)
+					if(zhongIndexArr.indexOf(j1) < 0 && hengIndexArr.indexOf(j1) < 0)
 						zhongIndexArr.push(j1);
 				}else{
 					break;
@@ -62,7 +64,7 @@ package game.logic
 			}
 			for(var j:int=index;j<list.array.length;j+=listSize){
 				if(list.array[j].answer != "0"){
-					if(zhongIndexArr.indexOf(j) < 0)
+					if(zhongIndexArr.indexOf(j) < 0 && hengIndexArr.indexOf(j) < 0)
 						zhongIndexArr.push(j);
 				}else{
 					break;
