@@ -1,4 +1,4 @@
 <NokDialog sceneWidth="600" sceneHeight="400" sceneColor="0xffffff" sceneBg="" layers="1,1,0,0,第 1 层">
   <Image url="png.main.bluebg2" x="0" y="0" layer="1" width="1440" height="800" sizeGrid="10,10,10,10"/>
-  <Tab labels="主屏幕,选手A,选手B,控制屏" skin="png.main.temp.tab" x="505" y="81" layer="1" var="tab"/>
+  <Tab labels="主屏幕,选手A,选手B,控制屏,主持人屏幕" skin="png.main.temp.tab" x="505" y="81" layer="1" var="tab"/>
 </NokDialog>

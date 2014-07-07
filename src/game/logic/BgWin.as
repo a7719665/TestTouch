@@ -40,6 +40,9 @@ package game.logic
 //					dialogdata.className = SmoothDraw;
 					dialogdata.className = ChooseCard;
 					break;
+				case 4:
+					dialogdata.className = ZcrScreen;
+					break;
 			}
 			ViewManager.me.setView(dialogdata);
 		}

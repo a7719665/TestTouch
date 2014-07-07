@@ -7,7 +7,7 @@ package game.ui.view {
 		protected var uiXML:XML =
 			<NokDialog>
 			  <Image url="png.main.bluebg2" x="0" y="0" width="1440" height="800" sizeGrid="10,10,10,10"/>
-			  <Tab labels="主屏幕,选手A,选手B,控制屏" skin="png.main.temp.tab" x="505" y="81" var="tab"/>
+			  <Tab labels="主屏幕,选手A,选手B,控制屏,主持人屏幕" skin="png.main.temp.tab" x="505" y="81" var="tab"/>
 			</NokDialog>;
 		public function BgUI(){}
 		override protected function createChildren():void {

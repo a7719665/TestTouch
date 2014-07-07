@@ -1,6 +1,17 @@
 package game.logic
 {
 	import com.data.GridVO;
+	import com.touch.MultTouchEvent;
+	import com.touch.MultTouchHelper;
+	import com.touch.MultTouchPhase;
+	
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	import flash.display.CapsStyle;
+	import flash.display.JointStyle;
+	import flash.display.LineScaleMode;
+	import flash.events.Event;
+	import flash.geom.Rectangle;
 	
 	import game.ui.view.ZcrScreenUI;
 	
@@ -23,6 +34,44 @@ package game.logic
 			setTimer();
 			
 			setTips();
+			
+			
+			drawSp.addEventListener(MultTouchEvent.TOUCH,testFun);
+			new MultTouchHelper(drawSp,MultTouchHelper.MULT_ALL);
+
+			function testFun(evt:MultTouchEvent):void{
+				//				sp.x += evt.moveX;
+				//				sp.y += evt.moveY;
+				//				sp.scaleX = sp.scaleY *= evt.scale;
+				//				
+				//				sp.rotation += evt.rota;
+				if(evt.touchType == MultTouchPhase.TOUCH_BEGAN){
+					drawSp.graphics.lineStyle(4, 0xFFFFFF, 1, false, LineScaleMode.VERTICAL,
+						CapsStyle.NONE, JointStyle.MITER, 10);
+					/**将起点移到鼠标点击点处*/
+					drawSp.graphics.moveTo(evt.stageX,evt.stageY);
+				}
+				if(evt.touchType == MultTouchPhase.TOUCH_MOVE){
+					drawSp.graphics.lineTo(evt.stageX,evt.stageY);
+				}
+				if(evt.touchType == MultTouchPhase.TOUCH_END){
+					drawSp.graphics.endFill();
+				}
+			}
+		}
+		
+		private function saveByte(evt:Event=null):void{
+			drawSp.graphics.endFill();
+			var rect:Rectangle = drawSp.getBounds(this);
+			var bmd:BitmapData=new BitmapData(rect.width,rect.height,true, 0);  
+			bmd.draw(drawSp );
+			//			var bytes:ByteArray = ByteArrayUtil.BitmapDataToBytes(bmd);
+			
+			var bmp:Bitmap = new Bitmap(bmd);
+			this.addChild(bmp);
+			bmp.x = drawSp.x +100;
+			
+			
 		}
 		
 		private function setLeftTxt():void{

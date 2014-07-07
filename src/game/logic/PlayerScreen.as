@@ -2,6 +2,7 @@ package game.logic
 {
 	import com.touch.MultTouchEvent;
 	import com.touch.MultTouchHelper;
+	import com.touch.MultTouchPhase;
 	import com.transformer.ByteArrayUtil;
 	
 	import flash.display.Bitmap;
@@ -14,6 +15,7 @@ package game.logic
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.geom.Matrix;
+	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	import flash.utils.ByteArray;
 	
@@ -35,21 +37,36 @@ package game.logic
 			
 //			startDraw();
 			
-//			qiangBtn.addEventListener(MouseEvent.MOUSE_DOWN,saveByte);
-			conmitBtn.addEventListener(MouseEvent.MOUSE_DOWN,huanyuanBmd);
+			conmitBtn.addEventListener(MouseEvent.MOUSE_DOWN,saveByte);
 			playerMain.visible=false;
 			card.visible=true;
 			
-//			smoothDraw = new SmoothDraw();
-//			this.addChild(smoothDraw);
-//			smoothDraw.x = drawSp.x;
-//			smoothDraw.y = drawSp.y;
 			
 			card.addEventListener(MultTouchEvent.GESTURE,scaleHandle);
-//			card.addEventListener(MultTouchEvent.SELECT,scaleHandle);
 			
 			// 5 - 检查Key
 			new MultTouchHelper(card,MultTouchHelper.MULT_ALL);
+			
+			
+			trapezoid.addEventListener(MultTouchEvent.TOUCH,testFun);
+			new MultTouchHelper(trapezoid,MultTouchHelper.MULT_ALL);
+			
+			function testFun(evt:MultTouchEvent):void{
+				var p:Point = trapezoid.globalToLocal(new Point(evt.stageX,evt.stageY));
+
+				if(evt.touchType == MultTouchPhase.TOUCH_BEGAN){
+					trapezoid.graphics.lineStyle(4, 0xFFFFFF, 1, false, LineScaleMode.VERTICAL,
+						CapsStyle.NONE, JointStyle.MITER, 10);
+					/**将起点移到鼠标点击点处*/
+					trapezoid.graphics.moveTo(p.x,p.y);
+				}
+				if(evt.touchType == MultTouchPhase.TOUCH_MOVE){
+					trapezoid.graphics.lineTo(p.x,p.y);
+				}
+				if(evt.touchType == MultTouchPhase.TOUCH_END){
+					trapezoid.graphics.endFill();
+				}
+			}
 		}
 		
 		private function scaleHandle(evt:MultTouchEvent):void{
@@ -65,10 +82,6 @@ package game.logic
 		
 		private const CLEAR:Boolean = false;//是否每一次画线前都清内容
 		private var trapezoid:Shape ;
-		private function startDraw():void{
-			drawSp.addEventListener(MouseEvent.MOUSE_DOWN,mouseDownFun);
-			
-		}
 		private var bmdbytes:ByteArray;
 		private function huanyuanBmd(evt:Event=null):void{
 			var bmd:BitmapData = ByteArrayUtil.BytesToBitmapData(bmdbytes);
@@ -96,34 +109,5 @@ package game.logic
 		}
 		
 		
-		/**鼠标按下*/
-		private function mouseDownFun(e:MouseEvent):void{
-			if(CLEAR){
-				this.graphics.clear();
-			}
-			trapezoid.graphics.lineStyle(4, 0xFFD700, 1, false, LineScaleMode.VERTICAL,
-				CapsStyle.NONE, JointStyle.MITER, 10);
-			/**将起点移到鼠标点击点处*/
-			trapezoid.graphics.moveTo(mouseX,mouseY);
-			
-			/**添加鼠标移动事件，和鼠标释放事件*/
-			drawSp.addEventListener(MouseEvent.MOUSE_MOVE,mouseMoveFun);
-			drawSp.addEventListener(MouseEvent.MOUSE_UP,mouseUpFun);
-			drawSp.addEventListener(MouseEvent.MOUSE_OUT,mouseUpFun);
-		}
-		
-		/**鼠标移动，开始画线*/
-		private function mouseMoveFun(e:MouseEvent):void{
-			trapezoid.graphics.lineTo(mouseX,mouseY);
-		}
-		
-		/**鼠标释放，移除事件，停止画线*/
-		private function mouseUpFun(e:MouseEvent):void{
-			drawSp.removeEventListener(MouseEvent.MOUSE_MOVE,mouseMoveFun);
-			drawSp.removeEventListener(MouseEvent.MOUSE_UP,mouseUpFun);
-			drawSp.removeEventListener(MouseEvent.MOUSE_OUT,mouseUpFun);
-			trapezoid.graphics.endFill();
-//			saveByte();
-		}
 	}
 }

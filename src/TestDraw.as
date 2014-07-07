@@ -18,11 +18,11 @@ package
 			super();
 			trapezoid = new Shape();   
 			this.addChild(trapezoid);
-			trapezoid.graphics.beginFill(0xcc,0);
+//			trapezoid.graphics.beginFill(0xcc,0);
 			
-			trapezoid.graphics.drawCircle(50,50,50);
+//			trapezoid.graphics.drawCircle(50,50,50);
 			
-			trapezoid.graphics.endFill();
+//			trapezoid.graphics.endFill();
 			startDraw();
 		}
 		
