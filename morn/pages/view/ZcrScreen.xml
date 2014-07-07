@@ -19,4 +19,5 @@
   <Label text="50" x="660" y="32" layer="1" isHtml="true" width="63" height="31" color="0xffffff" size="18" skin="png.main.head.level" align="center"/>
   <Button label="对" skin="png.comp.btn_yellow" x="325" y="107" layer="1"/>
   <Button label="错" skin="png.comp.btn_yellow" x="442" y="107" layer="1"/>
+  <Button label="显示答案" skin="png.comp.btn_yellow" x="192" y="106" layer="1" var="showAnser"/>
 </NokDialog>

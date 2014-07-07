@@ -35,9 +35,10 @@ package game.logic
 			
 			setTips();
 			
-			
+			showAnser.addEventListener(MultTouchEvent.TOUCH,showAnswer);
 			drawSp.addEventListener(MultTouchEvent.TOUCH,testFun);
 			new MultTouchHelper(drawSp,MultTouchHelper.MULT_ALL);
+			new MultTouchHelper(showAnser,MultTouchHelper.MULT_ALL);
 
 			function testFun(evt:MultTouchEvent):void{
 				//				sp.x += evt.moveX;
@@ -60,6 +61,9 @@ package game.logic
 			}
 		}
 		
+		private function showAnswer(evt:MultTouchEvent):void{
+			grid.showSelectAnswer();
+		}
 		private function saveByte(evt:Event=null):void{
 			drawSp.graphics.endFill();
 			var rect:Rectangle = drawSp.getBounds(this);

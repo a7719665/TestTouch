@@ -10,6 +10,7 @@ package game.ui.view {
 		public var timeTxt1:Label;
 		public var drawSp:Box;
 		public var timeTxt2:Label;
+		public var showAnser:Button;
 		protected var uiXML:XML =
 			<NokDialog>
 			  <Box x="-6" y="128" width="180" height="469">
@@ -32,6 +33,7 @@ package game.ui.view {
 			  <Label text="50" x="660" y="32" isHtml="true" width="63" height="31" color="0xffffff" size="18" skin="png.main.head.level" align="center"/>
 			  <Button label="对" skin="png.comp.btn_yellow" x="325" y="107"/>
 			  <Button label="错" skin="png.comp.btn_yellow" x="442" y="107"/>
+			  <Button label="显示答案" skin="png.comp.btn_yellow" x="192" y="106" var="showAnser"/>
 			</NokDialog>;
 		public function ZcrScreenUI(){}
 		override protected function createChildren():void {

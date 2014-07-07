@@ -29,10 +29,13 @@ package game.logic
 		}
 		
 		
+		private var hengIndexArr:Array;
+		private var zhongIndexArr:Array;
 		private var listSize:int = 10;
 		private function getNext(index:int):void{
-			var hengIndexArr:Array = [];
-			var zhongIndexArr:Array = [];
+			hengIndexArr =[];
+			zhongIndexArr =[];
+			
 			var beishu:int = index / listSize;
 			var hengMax:int = (beishu+1) * listSize ;
 			var hengMin:int = int(index/listSize) * listSize;
@@ -70,6 +73,11 @@ package game.logic
 					break;
 				}
 			}
+			showAnswerSelected(zhongIndexArr);
+			showAnswerSelected(hengIndexArr);
+		}
+		
+		public function showSelectAnswer():void{
 			showAnswer(zhongIndexArr);
 			showAnswer(hengIndexArr);
 		}
@@ -85,6 +93,13 @@ package game.logic
 		}
 		
 		public function showAnswer(arr:Array):void{
+			for(var i:int=0;i<arr.length;i++){
+				var rectitem:RectItem = list.content.getChildAt(arr[i]) as RectItem;
+				rectitem.showAnswer();
+			}
+		}
+		
+		public function showAnswerSelected(arr:Array):void{
 			for(var i:int=0;i<arr.length;i++){
 				var rectitem:RectItem = list.content.getChildAt(arr[i]) as RectItem;
 				rectitem.showAnswerClip();

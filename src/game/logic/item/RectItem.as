@@ -64,7 +64,9 @@
 		/**高亮并且显示答案*/
 		public function showAnswer():void{
 			btnclip.frame = SELECT_CLIP;
-			setQuestionTxt();
+			if(_gridVO.answer !="0"){
+				label1.text = _gridVO.answer;
+			}
 		}
 		
 		private function setQuestionTxt():void{
