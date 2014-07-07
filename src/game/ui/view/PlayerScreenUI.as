@@ -2,11 +2,12 @@
 package game.ui.view {
 	import morn.core.components.*;
 	import  com.components.*;
-	import game.ui.view.GridPanelUI;
+	import game.logic.GridPanel;
 	import game.ui.view.item.CardItemUI;
 	public class PlayerScreenUI extends NokDialog {
 		public var card:CardItemUI;
 		public var playerMain:Box;
+		public var grid:GridPanel;
 		public var tipTxt:Label;
 		public var drawSp:Box;
 		public var conmitBtn:Button;
@@ -15,10 +16,10 @@ package game.ui.view {
 			<NokDialog>
 			  <CardItem x="283" y="10" var="card" runtime="game.ui.view.item.CardItemUI"/>
 			  <Box var="playerMain">
-			    <GridPanel x="1" y="27" runtime="game.ui.view.GridPanelUI"/>
+			    <GridPanel x="1" y="27" var="grid" runtime="game.logic.GridPanel"/>
 			    <Label text="题目" x="0" y="0" isHtml="true" width="218" height="25" var="tipTxt" color="0xff0000" size="18"/>
-			    <Box x="505" y="196" var="drawSp">
-			      <Image url="png.main.bluebg2" sizeGrid="10,10,,10,10" width="263" height="100"/>
+			    <Box x="499" y="120" var="drawSp">
+			      <Image url="png.main.bluebg2" sizeGrid="10,10,,10,10" width="263" height="183"/>
 			    </Box>
 			    <Button label="取消" skin="png.comp.btn_yellow" x="527" y="410"/>
 			    <Button label="提交" skin="png.comp.btn_yellow" x="659" y="411" var="conmitBtn"/>
@@ -28,7 +29,7 @@ package game.ui.view {
 			</NokDialog>;
 		public function PlayerScreenUI(){}
 		override protected function createChildren():void {
-			viewClassMap["game.ui.view.GridPanelUI"] = GridPanelUI;
+			viewClassMap["game.logic.GridPanel"] = GridPanel;
 			viewClassMap["game.ui.view.item.CardItemUI"] = CardItemUI;
 			createView(uiXML);
 		}

@@ -35,10 +35,10 @@
  		}
 		
 		private function onTouch(event:MultTouchEvent):void{
-			if(event.touchType == MultTouchPhase.TOUCH_END ){
+//			if(event.touchType == MultTouchPhase.TOUCH_MOVE || event.touchType == MultTouchPhase.TOUCH_BEGAN ){
 //				this.dispatchEvent(new MultTouchEvent(MultTouchEvent.SELECT));
 				onClick();
-			}
+//			}
 		}
 		
 		public function get index():int

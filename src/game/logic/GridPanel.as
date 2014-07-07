@@ -32,47 +32,57 @@ package game.logic
 		private var hengIndexArr:Array;
 		private var zhongIndexArr:Array;
 		private var listSize:int = 10;
+		private var lastIndex:int;
 		private function getNext(index:int):void{
 			hengIndexArr =[];
 			zhongIndexArr =[];
-			
 			var beishu:int = index / listSize;
 			var hengMax:int = (beishu+1) * listSize ;
 			var hengMin:int = int(index/listSize) * listSize;
-			var arr:Array = Global.answer;
-			/**横着*/
-			for(var i1:int=index;i1>=hengMin;i1--){
-				if(list.array[i1].answer != "0"){
-					hengIndexArr.push(i1);
-				}else{
-					break;
+			if(index == lastIndex+1 || index == lastIndex-1 ){
+				/**横着*/
+				for(var i1:int=index;i1>=hengMin;i1--){
+					if(list.array[i1].answer != "0"){
+						hengIndexArr.push(i1);
+					}else{
+						break;
+					}
+				}
+				for(var i:int=index;i<hengMax;i++){
+					if(list.array[i].answer != "0"){
+						if(hengIndexArr.indexOf(i) < 0)
+							hengIndexArr.push(i);
+					}else{
+						break;
+					}
 				}
 			}
-			for(var i:int=index;i<hengMax;i++){
-				if(list.array[i].answer != "0"){
-					if(hengIndexArr.indexOf(i) < 0)
-						hengIndexArr.push(i);
-				}else{
-					break;
+			if(index == lastIndex+listSize || index == lastIndex-listSize ){
+				/**纵*/
+				for(var j1:int=index;j1>=0;j1-=listSize){
+					if(list.array[j1].answer != "0"){
+						if(zhongIndexArr.indexOf(j1) < 0 && hengIndexArr.indexOf(j1) < 0)
+							zhongIndexArr.push(j1);
+					}else{
+						break;
+					}
 				}
-			}
-			/**纵*/
-			for(var j1:int=index;j1>=0;j1-=listSize){
-				if(list.array[j1].answer != "0"){
-					if(zhongIndexArr.indexOf(j1) < 0 && hengIndexArr.indexOf(j1) < 0)
-						zhongIndexArr.push(j1);
-				}else{
-					break;
+				for(var j:int=index;j<list.array.length;j+=listSize){
+					if(list.array[j].answer != "0"){
+						if(zhongIndexArr.indexOf(j) < 0 && hengIndexArr.indexOf(j) < 0)
+							zhongIndexArr.push(j);
+					}else{
+						break;
+					}
 				}
+				
 			}
-			for(var j:int=index;j<list.array.length;j+=listSize){
-				if(list.array[j].answer != "0"){
-					if(zhongIndexArr.indexOf(j) < 0 && hengIndexArr.indexOf(j) < 0)
-						zhongIndexArr.push(j);
-				}else{
-					break;
-				}
-			}
+			trace("lastIndex:"+lastIndex+" index:"+index)
+			lastIndex = index;
+			
+			
+			
+		
 			showAnswerSelected(zhongIndexArr);
 			showAnswerSelected(hengIndexArr);
 		}

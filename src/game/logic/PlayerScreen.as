@@ -1,5 +1,6 @@
 package game.logic
 {
+	import com.data.GridVO;
 	import com.touch.MultTouchEvent;
 	import com.touch.MultTouchHelper;
 	import com.touch.MultTouchPhase;
@@ -21,10 +22,16 @@ package game.logic
 	
 	import game.ui.view.PlayerScreenUI;
 	
+	import manager.AlertManager;
+	
+	import utils.TimerFormat;
+	import utils.TimerUtils;
+	
 	public class PlayerScreen extends PlayerScreenUI
 	{
 		private var smoothDraw:SmoothDraw;
 		private var rect:Rectangle ;
+		private var timer:TimerUtils;
 		public function PlayerScreen()
 		{
 			super();
@@ -57,7 +64,36 @@ package game.logic
 			trapezoid.addEventListener(MultTouchEvent.TOUCH,testFun);
 			new MultTouchHelper(trapezoid,MultTouchHelper.MULT_ALL);
 			
+			setTimer();
+			setList();
+		}
 		
+		private function setList():void{
+			var listData:Array=[];
+			var arr:Array = Global.question;
+			var arr2:Array = Global.answer;
+			if(arr.length != arr2.length){
+				AlertManager.showByName(AlertOk,null,"answer和question数组不一样");
+			}else{
+				for(var i:int=0;i<arr.length;i++){
+					var gridvo:GridVO = new GridVO();
+					gridvo.question = arr[i];
+					gridvo.answer = arr2[i];
+					listData.push(gridvo);
+				}
+			}
+			grid.setList(listData) ;
+		}
+		
+		private function setTimer():void{
+			timer = new TimerUtils(1000,10);
+			timer.registerCallback(progressHandle,completeHandle);
+			timer.start();
+		}
+		private function progressHandle():void{
+			timeTxt2.text = TimerFormat.setTimeText(timer.repeatCount-timer.currentCount);
+		}
+		private function completeHandle():void{
 		}
 		
 		private function testFun(evt:MultTouchEvent):void{
