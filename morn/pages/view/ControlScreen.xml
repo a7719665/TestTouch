@@ -1,0 +1,14 @@
+<NokDialog sceneWidth="600" sceneHeight="400" sceneColor="0xffffff" sceneBg="" layers="1,1,0,0,第 1 层">
+  <Box layers="1,1,0" layer="1" x="0" y="0">
+    <Button label="选手A分数" skin="png.main.temp.btn_yellow" x="4" y="3" layer="1" width="87"/>
+    <Button label="选手B分数" skin="png.main.temp.btn_yellow" x="208" layer="1" width="87"/>
+    <Button label="选手A所剩时间" skin="png.main.temp.btn_yellow" x="3" y="48" layer="1" width="87" height="27"/>
+    <Button label="选手B所剩时间" skin="png.main.temp.btn_yellow" x="210" y="48" layer="1" width="87" height="27"/>
+    <Button label="选手A答题" skin="png.main.temp.btn_yellow" x="5" y="97" layer="1" width="87" height="27"/>
+    <Button label="选手B答题" skin="png.main.temp.btn_yellow" x="212" y="101" layer="1" width="87" height="27"/>
+    <Label text="选手名字(李雷)" x="106" y="143" layer="1"/>
+    <Button label="游戏开始" skin="png.main.temp.btn_yellow" y="185" layer="1" width="87" height="27"/>
+    <Button label="游戏结束" skin="png.main.temp.btn_yellow" x="204" y="181" layer="1" width="87" height="27"/>
+    <Button label="暂停" skin="png.main.minimap.btn_function" x="130" y="171" layer="1" sizeGrid="10,10,10,10" width="40" height="40"/>
+  </Box>
+</NokDialog>

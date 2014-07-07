@@ -1,0 +1,8 @@
+<NokDialog sceneWidth="600" sceneHeight="400" sceneColor="0xffffff" sceneBg="" layers="1,1,0,0,第 1 层">
+  <Box layers="1,1,0" layer="1" x="0" y="0">
+    <Image url="png.main.panelBg" layer="1" sizeGrid="18,18,18,18" width="470" height="465"/>
+    <List layers="1,1,0" layer="1" x="11" y="8" repeatX="10" repeatY="10" var="list">
+      <UIView source="view/RectItem.xml" x="0" y="0" layer="1" name="render" runtime="game.logic.item.RectItem"/>
+    </List>
+  </Box>
+</NokDialog>

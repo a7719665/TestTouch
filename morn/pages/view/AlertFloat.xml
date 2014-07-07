@@ -1,0 +1,8 @@
+<NokDialog sceneWidth="600" sceneHeight="400" sceneColor="0xffffff" sceneBg="" layers="1,1,0,0,第 1 层">
+  <Box layers="1,1,0" layer="1" x="0" y="0">
+    <Image url="png.main.temp.bluebg" layer="1" sizeGrid="54,27,54,15" width="243" height="97" x="0" y="0"/>
+    <Label text="错误" x="87" y="5" layer="1" width="65" height="21" align="center" size="15" stroke="0xffffff"/>
+    <Label text="默认文字" x="3" y="36" layer="1" width="237" height="22" align="center" isHtml="true" multiline="true" color="0xffffff" stroke="0x0" size="14" var="txt"/>
+    <Label text="3s后自动消失" x="26" y="58" layer="1" width="198" height="21" align="center" var="autoTxt"/>
+  </Box>
+</NokDialog>

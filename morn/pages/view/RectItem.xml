@@ -1,0 +1,6 @@
+<View sceneWidth="600" sceneHeight="400" sceneColor="0xffffff" sceneBg="" layers="1,1,0,0,第 1 层">
+  <Box layers="1,1,0" layer="1" name="render" x="0" y="0" mouseChildren="false" mouseEnabled="true">
+    <FrameClip skin="frameclip_btn" layer="1" width="45" height="45" frame="2" var="btnclip" mouseChildren="false" mouseEnabled="false"/>
+    <TextArea x="9" y="4" layer="1" width="28" height="38" editable="false" isHtml="true" color="0x3300ff" bold="true" var="label1" mouseChildren="false" mouseEnabled="false"/>
+  </Box>
+</View>

@@ -1,0 +1,22 @@
+<NokDialog sceneWidth="600" sceneHeight="400" sceneColor="0xffffff" sceneBg="" layers="1,1,0,0,第 1 层">
+  <Box layers="1,1,0" layer="1" x="-6" y="128" width="180" height="469">
+    <Image url="png.main.panel" x="0" y="0" layer="1" sizeGrid="40,50,40,40" width="181" height="466"/>
+    <TextArea x="14" y="43" layer="1" width="152" height="408" var="leftTxt" isHtml="true" wordWrap="true" multiline="true" editable="false" bold="true" leading="5"/>
+  </Box>
+  <Box layers="1,1,0" layer="1" x="654" y="141">
+    <Image url="png.main.panel" x="0" y="0" layer="1" sizeGrid="40,50,40,40" width="186" height="451"/>
+    <TextArea x="16" y="43" layer="1" width="158" height="395" var="rightTxt" isHtml="true" multiline="true" wordWrap="true" editable="false" bold="true" leading="5"/>
+  </Box>
+  <UIView source="view/GridPanel.xml" x="179" y="136" layer="1" var="grid" runtime="game.logic.GridPanel"/>
+  <Label text="选手：李雷" x="11" y="18" layer="1" isHtml="true" width="112" height="25" color="0xff00" size="18" skin="png.comp.item" align="center"/>
+  <Label text="05:00" x="13" y="47" layer="1" isHtml="true" width="111" height="25" var="timeTxt1" color="0xff0000" size="18" skin="png.comp.item" align="center"/>
+  <Label text="50" x="127" y="30" layer="1" isHtml="true" width="63" height="31" color="0xffffff" size="18" skin="png.main.head.level" align="center"/>
+  <Box layers="1,1,0" layer="1" x="199" y="0" var="drawSp">
+    <Image url="png.main.bluebg2" layer="1" sizeGrid="10,10,10,10" width="450" height="100" x="0" y="0"/>
+  </Box>
+  <Label text="选手：韩梅梅" x="734" y="21" layer="1" isHtml="true" width="120" height="25" color="0xff00" size="18" skin="png.comp.item" align="center"/>
+  <Label text="04:12" x="733" y="51" layer="1" isHtml="true" width="118" height="25" var="timeTxt2" color="0xff0000" size="18" skin="png.comp.item" align="center"/>
+  <Label text="50" x="660" y="32" layer="1" isHtml="true" width="63" height="31" color="0xffffff" size="18" skin="png.main.head.level" align="center"/>
+  <Button label="对" skin="png.comp.btn_yellow" x="325" y="107" layer="1"/>
+  <Button label="错" skin="png.comp.btn_yellow" x="442" y="107" layer="1"/>
+</NokDialog>

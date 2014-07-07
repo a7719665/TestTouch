@@ -1,0 +1,7 @@
+<View sceneWidth="600" sceneHeight="400" sceneColor="0xffffff" sceneBg="" layers="1,1,0,0,第 1 层">
+  <Box layers="1,1,0" layer="1" x="2" y="0">
+    <Image url="png.comp.bluebg" layer="1" sizeGrid="70,30,30,50" width="196" height="292"/>
+    <Label text="A牌" x="81" y="6" layer="1" color="0xffffff" stroke="0x66"/>
+    <Image url="png.comp.image" x="23" y="34" layer="1"/>
+  </Box>
+</View>

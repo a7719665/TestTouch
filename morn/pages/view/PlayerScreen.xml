@@ -1,0 +1,14 @@
+<NokDialog sceneWidth="600" sceneHeight="400" sceneColor="0xffffff" sceneBg="" layers="1,1,0,0,第 1 层;2,1,0,0,第 2 层">
+  <UIView source="view/item/CardItem.xml" x="0" y="1" layer="2" var="card"/>
+  <Box layers="1,1,0" layer="1" var="playerMain">
+    <UIView source="view/GridPanel.xml" x="1" y="27" layer="1"/>
+    <Label text="题目" x="0" y="0" layer="1" isHtml="true" width="218" height="25" var="tipTxt" color="0xff0000" size="18"/>
+    <Box layers="1,1,0" layer="1" x="505" y="196" var="drawSp">
+      <Image url="png.main.bluebg2" layer="1" sizeGrid="10,10,,10,10" width="263" height="100"/>
+    </Box>
+    <Button label="取消" skin="png.comp.btn_yellow" x="527" y="410" layer="1"/>
+    <Button label="提交" skin="png.comp.btn_yellow" x="659" y="411" layer="1" var="conmitBtn"/>
+    <Label text="05:00" x="507" y="35" layer="1" isHtml="true" width="111" height="25" var="timeTxt2" color="0xff0000" size="18" skin="png.comp.item" align="center"/>
+    <Label text="50" x="634" y="36" layer="1" isHtml="true" width="63" height="31" color="0xffffff" size="18" skin="png.main.head.level" align="center"/>
+  </Box>
+</NokDialog>
