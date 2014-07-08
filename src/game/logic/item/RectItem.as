@@ -38,6 +38,7 @@
 //			if(event.touchType == MultTouchPhase.TOUCH_MOVE || event.touchType == MultTouchPhase.TOUCH_BEGAN ){
 //				this.dispatchEvent(new MultTouchEvent(MultTouchEvent.SELECT));
 				onClick();
+				trace(event.touchType)
 //			}
 		}
 		

@@ -17,7 +17,9 @@ package
 	import flash.utils.Dictionary;
 	
 	import game.logic.BgWin;
+	import game.logic.LoginScreen;
 	import game.logic.MainScreen;
+	import game.ui.view.LoginScreenUI;
 	
 	import manager.LayerManager;
 	import manager.ViewManager;
@@ -158,7 +160,7 @@ package
 			LayerManager.me.setup(bg);
 			
 			var dialogdata:DialogData = new DialogData();
-			dialogdata.className = MainScreen;
+			dialogdata.className = LoginScreen;
 			ViewManager.me.setView(dialogdata);
 //			var headView:HeadView=new HeadView();
 //			LayerManager.me.bottomSpriteAdd(headView);

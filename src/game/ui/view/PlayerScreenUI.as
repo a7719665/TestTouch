@@ -17,7 +17,7 @@ package game.ui.view {
 			  <CardItem x="283" y="10" var="card" runtime="game.ui.view.item.CardItemUI"/>
 			  <Box var="playerMain">
 			    <GridPanel x="1" y="27" var="grid" runtime="game.logic.GridPanel"/>
-			    <Label text="题目" x="0" y="0" isHtml="true" width="218" height="25" var="tipTxt" color="0xff0000" size="18"/>
+			    <Label x="0" y="0" isHtml="true" width="218" height="25" var="tipTxt" color="0xff0000" size="18" text="狄仁杰经常对远方说的话" bold="true"/>
 			    <Box x="499" y="120" var="drawSp">
 			      <Image url="png.main.bluebg2" sizeGrid="10,10,,10,10" width="263" height="183"/>
 			    </Box>
