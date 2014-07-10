@@ -9,7 +9,7 @@ package game.ui.view {
 			<View>
 			  <Box name="render" x="0" y="0" mouseChildren="false" mouseEnabled="true">
 			    <FrameClip skin="frameclip_btn" width="45" height="45" frame="2" var="btnclip" mouseChildren="false" mouseEnabled="false"/>
-			    <TextArea x="9" y="4" width="28" height="38" editable="false" isHtml="true" color="0x3300ff" bold="true" var="label1" mouseChildren="false" mouseEnabled="false"/>
+			    <TextArea x="2" y="1" width="41" height="41" editable="false" isHtml="true" color="0x3300ff" bold="true" var="label1" mouseChildren="false" mouseEnabled="false"/>
 			  </Box>
 			</View>;
 		public function RectItemUI(){}

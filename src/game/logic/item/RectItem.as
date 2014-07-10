@@ -10,6 +10,7 @@
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	
+	import game.logic.GridPanel;
 	import game.ui.view.RectItemUI;
 	
 	public class RectItem extends RectItemUI
@@ -27,22 +28,25 @@
 		{
 			super();
 			btnclip.frame = NOTHING_CLIP;
-			label1.textField.mouseEnabled=false;
-			btnclip.mc.mouseEnabled=false;
-			btnclip.mc.mouseChildren=false;
+//			label1.textField.mouseEnabled=false;
+//			btnclip.mc.mouseEnabled=false;
+//			btnclip.mc.mouseChildren=false;
 			
 			
  		}
 
 		
-		public var resetBoo:Boolean = false;
 		private function onTouch(event:MultTouchEvent):void{
-			if(event.touchType == MultTouchPhase.TOUCH_END ){
-				resetBoo= true;
-			}else
-				resetBoo = false;
-			if(_gridVO && _gridVO.answer != "0"){
-				this.dispatchEvent(new GameEvent("rectItemSelect",this));
+			if(event.currentTarget == label1 ){
+				if(event.touchType == MultTouchPhase.TOUCH_END ){
+					trace("点击rectitem结束");
+					GridPanel.lastIndex = 0;
+				}
+				if(event.touchType == MultTouchPhase.TOUCH_BEGAN || event.touchType == MultTouchPhase.TOUCH_OVER){
+					if(_gridVO && _gridVO.answer != "0"){
+						this.dispatchEvent(new GameEvent("rectItemSelect",this));
+					}
+				}
 			}
 		}
 		
@@ -62,8 +66,8 @@
 
 			if(_gridVO.answer != "0"){
 				btnclip.frame = WORD_CLIP;				
-				this.addEventListener(MultTouchEvent.TOUCH,onTouch);
-				new MultTouchHelper(this,MultTouchHelper.SELECT);
+				label1.addEventListener(MultTouchEvent.TOUCH,onTouch);
+				new MultTouchHelper(label1,MultTouchHelper.SELECT);
 			}
 			setQuestionTxt();
 		}
