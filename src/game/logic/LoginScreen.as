@@ -1,6 +1,7 @@
 package game.logic
 {
 	import com.touch.MultTouchEvent;
+	import com.touch.MultTouchHelper;
 	import com.touch.MultTouchPhase;
 	
 	import flash.events.Event;
@@ -23,6 +24,8 @@ package game.logic
 			porttxt.addEventListener(FocusEvent.FOCUS_IN,portFocusHandle);
 			for(var i:int=0;i<12;i++){
 				this["btn"+i].addEventListener(MultTouchEvent.SELECT,onTouch);
+				new MultTouchHelper(this["btn"+i],MultTouchHelper.MULT_ALL);
+
 //				this["btn"+i].addEventListener(MouseEvent.CLICK,onTouch);
 			}
 		}

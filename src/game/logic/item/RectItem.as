@@ -54,7 +54,7 @@
 
 			if(_gridVO.answer != "0"){
 				btnclip.frame = WORD_CLIP;				
-				this.addEventListener(MultTouchEvent.SELECT,onTouch);
+				this.addEventListener(MultTouchEvent.TOUCH,onTouch);
 				new MultTouchHelper(this,MultTouchHelper.MULT_ALL);
 			}
 			setQuestionTxt();
