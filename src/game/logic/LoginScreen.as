@@ -22,8 +22,8 @@ package game.logic
 			iptxt.addEventListener(FocusEvent.FOCUS_IN,ipFocusHandle);
 			porttxt.addEventListener(FocusEvent.FOCUS_IN,portFocusHandle);
 			for(var i:int=0;i<12;i++){
-//				this["btn"+i].addEventListener(MultTouchEvent.TOUCH,onTouch);
-				this["btn"+i].addEventListener(MouseEvent.CLICK,onTouch);
+				this["btn"+i].addEventListener(MultTouchEvent.SELECT,onTouch);
+//				this["btn"+i].addEventListener(MouseEvent.CLICK,onTouch);
 			}
 		}
 		
@@ -37,10 +37,6 @@ package game.logic
 			currentFocus = porttxt;
 		}
 		private function onTouch(event:Event):void{
-//			if(event.eventPhase != MultTouchPhase.TOUCH_END)
-//				return;
-			trace("ddddddddddddd")
-//			stage.focus = iptxt;
 			var target:Button = event.currentTarget as Button;
 			var ii:String = target.name.slice(3);
 			if(ii =="11" ){
@@ -50,7 +46,6 @@ package game.logic
 			}else{
 				currentFocus.text += ii;
 			}
-			
 		}
 	}
 }
