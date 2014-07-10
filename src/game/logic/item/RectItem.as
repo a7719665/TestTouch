@@ -57,7 +57,7 @@
 				this.addEventListener(MultTouchEvent.TOUCH,onTouch);
 				new MultTouchHelper(this,MultTouchHelper.MULT_ALL);
 			}
-			setQuestionTxt();  
+			setQuestionTxt();
 		}
 		/**高亮并且显示答案*/
 		public function showAnswer():void{
