@@ -4,6 +4,7 @@
 	import com.data.GridVO;
 	import com.evt.GameEvent;
 	import com.touch.MultTouchEvent;
+	import com.touch.MultTouchHelper;
 	import com.touch.MultTouchPhase;
 	
 	import flash.events.Event;
@@ -30,16 +31,11 @@
 			btnclip.mc.mouseEnabled=false;
 			btnclip.mc.mouseChildren=false;
 			
-			this.addEventListener(MultTouchEvent.TOUCH,onTouch);
-
+			
  		}
 		
 		private function onTouch(event:MultTouchEvent):void{
-//			if(event.touchType == MultTouchPhase.TOUCH_MOVE || event.touchType == MultTouchPhase.TOUCH_BEGAN ){
-//				this.dispatchEvent(new MultTouchEvent(MultTouchEvent.SELECT));
-				onClick();
-				trace(event.touchType)
-//			}
+			onClick();
 		}
 		
 		public function get index():int
@@ -58,7 +54,8 @@
 
 			if(_gridVO.answer != "0"){
 				btnclip.frame = WORD_CLIP;				
-				this.addEventListener(MouseEvent.CLICK,onClick);
+				this.addEventListener(MultTouchEvent.SELECT,onTouch);
+				new MultTouchHelper(this,MultTouchHelper.MULT_ALL);
 			}
 			setQuestionTxt();
 		}
