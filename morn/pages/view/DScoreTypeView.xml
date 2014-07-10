@@ -1,0 +1,6 @@
+<NokDialog sceneWidth="600" sceneHeight="400" sceneColor="0xffffff" sceneBg="" layers="1,1,0,0,第 1 层">
+  <Image url="png.main.bluebg2" x="0" y="0" layer="1" sizeGrid="10,10,10,10" width="347" height="244"/>
+  <Button label="台球制" skin="png.comp.button" x="22" y="73" layer="1" var="taiBtn"/>
+  <Button label="围棋制" skin="png.comp.button" x="138" y="73" layer="1" var="weiBtn"/>
+  <Button label="残局" skin="png.comp.button" x="259" y="76" layer="1" var="canBtn"/>
+</NokDialog>

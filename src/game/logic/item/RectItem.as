@@ -33,9 +33,17 @@
 			
 			
  		}
+
 		
+		public var resetBoo:Boolean = false;
 		private function onTouch(event:MultTouchEvent):void{
-			onClick();
+			if(event.touchType == MultTouchPhase.TOUCH_END ){
+				resetBoo= true;
+			}else
+				resetBoo = false;
+			if(_gridVO && _gridVO.answer != "0"){
+				this.dispatchEvent(new GameEvent("rectItemSelect",this));
+			}
 		}
 		
 		public function get index():int
@@ -55,7 +63,7 @@
 			if(_gridVO.answer != "0"){
 				btnclip.frame = WORD_CLIP;				
 				this.addEventListener(MultTouchEvent.TOUCH,onTouch);
-				new MultTouchHelper(this,MultTouchHelper.MULT_ALL);
+				new MultTouchHelper(this,MultTouchHelper.SELECT);
 			}
 			setQuestionTxt();
 		}
@@ -85,12 +93,6 @@
 				setQuestionTxt();
 			}
  		}
-		
-		private function onClick(evt:Event=null):void{
-			if(_gridVO && _gridVO.answer != "0"){
-				this.dispatchEvent(new GameEvent("rectItemSelect",this));
-			}
-		}
 		
 		
 		public function destroy():void{

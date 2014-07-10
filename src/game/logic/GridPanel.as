@@ -25,7 +25,7 @@ package game.logic
 			resetNum();
 			var item:RectItem = evt.data as RectItem;
 			
-			getNext(item.index);
+			getNext(item);
 		}
 		
 		
@@ -33,13 +33,14 @@ package game.logic
 		private var zhongIndexArr:Array;
 		private var listSize:int = 10;
 		private var lastIndex:int;
-		private function getNext(index:int):void{
+		private function getNext(item:RectItem):void{
+			var index:int = item.index;
 			hengIndexArr =[];
 			zhongIndexArr =[];
 			var beishu:int = index / listSize;
 			var hengMax:int = (beishu+1) * listSize ;
 			var hengMin:int = int(index/listSize) * listSize;
-			if(index == lastIndex+1 || index == lastIndex-1 ){
+			if(lastIndex==0 || index == lastIndex+1 || index == lastIndex-1 ){
 				/**横着*/
 				for(var i1:int=index;i1>=hengMin;i1--){
 					if(list.array[i1].answer != "0"){
@@ -57,7 +58,7 @@ package game.logic
 					}
 				}
 			}
-			if(index == lastIndex+listSize || index == lastIndex-listSize ){
+			if(lastIndex==0 || index == lastIndex+listSize || index == lastIndex-listSize ){
 				/**纵*/
 				for(var j1:int=index;j1>=0;j1-=listSize){
 					if(list.array[j1].answer != "0"){
@@ -77,11 +78,11 @@ package game.logic
 				}
 				
 			}
-			trace("lastIndex:"+lastIndex+" index:"+index)
-			lastIndex = index;
-			
-			
-			
+			trace("lastIndex:"+lastIndex+" index:"+index);
+			if(item.resetBoo)
+				lastIndex = 0;
+			else
+				lastIndex = index;
 		
 			showAnswerSelected(zhongIndexArr);
 			showAnswerSelected(hengIndexArr);

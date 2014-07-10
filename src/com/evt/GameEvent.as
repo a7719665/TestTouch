@@ -4,6 +4,7 @@ package com.evt
 
 	public class GameEvent extends Event
 	{		
+		public static const LOGIN_BACK:String="login_back";
 		/**
 		 * 打开npc对话面板
 		 */

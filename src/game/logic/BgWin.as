@@ -1,6 +1,8 @@
 package game.logic
 {
 	import com.data.DialogData;
+	import com.evt.Dispatcher;
+	import com.evt.GameEvent;
 	
 	import flash.events.Event;
 	
@@ -19,7 +21,12 @@ package game.logic
 			super();
 			
 			tab.addEventListener(Event.SELECT,tabBtnHandler);
+			Dispatcher.me.addEventListener(GameEvent.LOGIN_BACK,loginBack);
 
+		}
+		
+		private function loginBack(event:GameEvent):void{
+			
 		}
 		
 		private function tabBtnHandler(e:UIEvent):void
@@ -34,7 +41,7 @@ package game.logic
 					dialogdata.className = ControlScreen;
 					break;
 				case 2:
-					dialogdata.className = PlayerScreen;
+					dialogdata.className = DScoreTypeView;
 					break;
 				case 3:
 //					dialogdata.className = SmoothDraw;
