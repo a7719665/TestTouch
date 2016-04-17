@@ -22,9 +22,9 @@ package game.ui.view {
 			<NokDialog>
 			  <Image url="png.main.bluebg2" x="1" y="1" sizeGrid="10,10,10,10" width="347" height="244"/>
 			  <Label text="IP:" x="66" y="37" color="0xffffff" stroke="0x0"/>
-			  <TextInput text="192.168.1.1" skin="png.main.textinput_temp" x="94" y="37" color="0xffffff" stroke="0x0" var="iptxt"/>
+			  <TextInput text="marsmus.xicp.net" skin="png.main.textinput_temp" x="94" y="37" color="0xffffff" stroke="0x0" var="iptxt"/>
 			  <Label text="port:" x="66" y="59" color="0xffffff" stroke="0x0"/>
-			  <TextInput text="8000" skin="png.main.textinput_temp" x="95" y="59" color="0xffffff" stroke="0x0" editable="true" var="porttxt" restrict="123456890"/>
+			  <TextInput text="7000" skin="png.main.textinput_temp" x="95" y="59" color="0xffffff" stroke="0x0" editable="true" var="porttxt" restrict="123456890"/>
 			  <Button label="登录" skin="png.main.task.btn_accepted" x="107" y="106" labelColors="0xffffff" var="loginBtn"/>
 			  <Image url="png.main.bluebg2" x="350" y="2" sizeGrid="10,10,10,10" width="242" height="243"/>
 			  <Button label="1" skin="png.comp.button" x="378" y="19" width="50" height="45" var="btn1" name="btn1"/>
